@@ -14,9 +14,6 @@
     must_not_contain:
       - rror
   files:
-    - path: outputfile.txt
+    - path: sample1/crosscheck.txt
       contains:
-        - Hello world!
-    - path: sample1.txt
-    - path: sample2.txt
-    - path: sample3.txt
+        - tests/data/micro.vcf.gz

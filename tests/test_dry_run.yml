@@ -11,12 +11,7 @@
   exit_code: 0
   stdout:
     contains:
-      - echo "Hello world!" > outputfile.txt
-      - sample1.txt
-      - sample2.txt
-      - sample3.txt
-    must_not_contain:
-      - rror
-  stderr:
-    must_not_contain:
-      - rror
+      # Test if the picard command line string is created properly
+      - 'INPUT=tests/data/micro.vcf.gz INPUT=tests/data/micro.vcf.gz'
+      # Test if the haplotype map file from the config is included
+      - 'HAPLOTYPE_MAP=tests/data/haplotype.map'
