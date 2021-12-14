@@ -22,7 +22,10 @@ jobs:
           - sanity-snakemake-lint
           - sanity-singularity
           - dry-run-vanilla
+          - dry-run-two-samples
           - integration-vanilla
+          - integration-two-samples
+          - integration-different-vcf
     steps:
     - uses: actions/checkout@v2
 
