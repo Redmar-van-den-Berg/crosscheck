@@ -17,3 +17,12 @@
     - path: sample1/crosscheck.txt
       contains:
         - tests/data/micro.vcf.gz
+    - path: sample1/crosscheck.json
+      contains:
+        # Test if the sample input is present
+        - tests/data/micro.vcf.gz
+        # Test if crosscheck found that the vcf files match
+        - EXPECTED_MATCH
+      must_not_contain:
+        # Test to make sure that the file:// prefix was removed
+        - 'file://'

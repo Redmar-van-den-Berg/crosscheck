@@ -15,3 +15,5 @@
       - 'INPUT=tests/data/micro.vcf.gz INPUT=tests/data/micro.vcf.gz'
       # Test if the haplotype map file from the config is included
       - 'HAPLOTYPE_MAP=tests/data/haplotype.map'
+      # Test if we convert the crosscheck file to json
+      - '--crosscheck sample1/crosscheck.txt'

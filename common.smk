@@ -1,5 +1,5 @@
 containers = {
-        'debian': 'docker://debian:latest',
+        'python3': 'docker://python:latest',
         'picard': 'docker://quay.io/biocontainers/picard:2.26.6--hdfd78af_0',
 }
 
