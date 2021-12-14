@@ -1,0 +1,5 @@
+sample_name,files
+sample1,tests/data/micro.vcf.gz
+sample1,tests/data/micro.vcf.gz
+sample2,tests/data/micro.vcf.gz
+sample2,tests/data/micro.vcf.gz

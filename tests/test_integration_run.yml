@@ -8,7 +8,7 @@
       --jobs 1
       --latency-wait 120
       --use-singularity --singularity-args ' --cleanenv --bind /tmp'
-      --config pepfile=tests/pep/project_config.yaml
+      --config pepfile=tests/pep/vanilla/project_config.yaml
       --snakefile Snakefile
   stderr:
     must_not_contain:
@@ -26,3 +26,23 @@
       must_not_contain:
         # Test to make sure that the file:// prefix was removed
         - 'file://'
+
+- name: integration-two-samples
+  tags:
+    - integration
+  command: >
+    snakemake
+      --reason
+      --printshellcmds
+      --jobs 1
+      --latency-wait 120
+      --use-singularity --singularity-args ' --cleanenv --bind /tmp'
+      --config pepfile=tests/pep/two-samples/project_config.yaml
+      --snakefile Snakefile
+  stderr:
+    must_not_contain:
+      - rror
+  files:
+    # Test if both crosscheck json output files are generated
+    - path: sample1/crosscheck.json
+    - path: sample2/crosscheck.json

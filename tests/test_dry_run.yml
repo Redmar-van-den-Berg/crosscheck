@@ -6,7 +6,7 @@
       --dryrun
       --reason
       --printshellcmds
-      --config pepfile=tests/pep/project_config.yaml
+      --config pepfile=tests/pep/vanilla/project_config.yaml
       --snakefile Snakefile
   exit_code: 0
   stdout:
@@ -17,3 +17,20 @@
       - 'HAPLOTYPE_MAP=tests/data/haplotype.map'
       # Test if we convert the crosscheck file to json
       - '--crosscheck sample1/crosscheck.txt'
+
+- name: dry-run-two-samples
+  tags:
+    - dry-run
+  command: >
+    snakemake
+      --dryrun
+      --reason
+      --printshellcmds
+      --config pepfile=tests/pep/two-samples/project_config.yaml
+      --snakefile Snakefile
+  exit_code: 0
+  stdout:
+    contains:
+      # Test if we convert the crosscheck file to json for both samples
+      - '--crosscheck sample1/crosscheck.txt'
+      - '--crosscheck sample2/crosscheck.txt'
