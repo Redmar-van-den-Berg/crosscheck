@@ -1,6 +1,6 @@
 @HD	VN:1.4	GO:none	SO:coordinate
 @SQ	SN:chrM	LN:16569
 #CHROMOSOME	POSITION	NAME	MAJOR_ALLELE	MINOR_ALLELE	MAF	ANCHOR_SNP	PANELS
-chrM	152	name1	T	C	0.5
-chrM	263	name2	A	G	0.5
-chrM	302	name3	A	AC	0.5
+chrM	152	name1	T	C	0.1
+chrM	263	name2	A	G	0.2
+chrM	302	name3	A	AC	0.3
