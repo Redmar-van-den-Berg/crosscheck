@@ -7,20 +7,21 @@ rule all:
     input:
         crosscheck = expand('{sample}/crosscheck.txt', sample=pep.sample_table['sample_name']),
         json = expand('{sample}/crosscheck.json', sample=pep.sample_table['sample_name']),
-        array = expand('{sample}/array.vcf.gz', sample=samples_with_array()),
+        array = expand('{sample}/array.vcf', sample=samples_with_array()),
 
 rule convert:
     input:
         array = get_array
     output:
-        '{sample}/array.vcf.gz'
+        '{sample}/array.vcf'
     log:
         'log/{sample}_convert_array.txt'
     singularity:
         containers['array-as-vcf']
     shell: """
-        aav -p {input.array} \
-            | bgzip -c > {output} && tabix -p vcf {output}"
+        aav --path {input.array} \
+            --sample-name {wildcards.sample} \
+            2> {log} > {output}
     """
 
 rule picard_crosscheck:

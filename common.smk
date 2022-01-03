@@ -9,7 +9,7 @@ def get_input_files(wc):
     # If an array was specified for wildcards.sample, we include the converted
     # array file in the input files
     if wc.sample in samples_with_array():
-        return pep.sample_table.loc[wc.sample, 'files'] + [f'{wc.sample}/array.vcf.gz']
+        return pep.sample_table.loc[wc.sample, 'files'] + [f'{wc.sample}/array.vcf']
     else:
         return pep.sample_table.loc[wc.sample, 'files']
 
