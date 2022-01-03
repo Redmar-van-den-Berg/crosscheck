@@ -23,6 +23,7 @@ jobs:
           - sanity-singularity
           - dry-run-vanilla
           - dry-run-two-samples
+          - dry-run-with-array
           - integration-vanilla
           - integration-two-samples
           - integration-different-vcf
