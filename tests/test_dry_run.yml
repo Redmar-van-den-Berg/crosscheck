@@ -50,6 +50,8 @@
     contains_regex:
       # Test if array-as-vcf is executed for sample1
       - 'aav .* sample1/array.vcf.gz'
+      # Test if the converted array file is passed to picard crosscheck
+      - 'picard CrosscheckFingerprints .* INPUT=sample1/array.vcf.gz .* OUTPUT=sample1/crosscheck.txt'
     must_not_contain_regex:
       # Test if array-as-vcf is not executed for sample2
       - 'aav .* sample2/array.vcf.gz'

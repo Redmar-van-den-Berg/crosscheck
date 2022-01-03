@@ -4,9 +4,14 @@ containers = {
         'array-as-vcf': 'docker://quay.io/biocontainers/mulled-v2-cebd7a0eda25340aaa510eadd04701e136feb076:441826efb09a6cf80e9b36a3f50867b1a3661bed-0',
 }
 
-def get_input_files(wildcards):
+def get_input_files(wc):
     """ Return a list of the specified input files """
-    return pep.sample_table.loc[wildcards.sample, 'files']
+    # If an array was specified for wildcards.sample, we include the converted
+    # array file in the input files
+    if wc.sample in samples_with_array():
+        return pep.sample_table.loc[wc.sample, 'files'] + [f'{wc.sample}/array.vcf.gz']
+    else:
+        return pep.sample_table.loc[wc.sample, 'files']
 
 def get_picard_input_string(wildcards):
     return ' '.join(f'INPUT={x}' for x in get_input_files(wildcards))
