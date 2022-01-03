@@ -16,7 +16,7 @@ rule convert:
         '{sample}/array.vcf'
     log:
         'log/{sample}_convert_array.txt'
-    singularity:
+    container:
         containers['array-as-vcf']
     shell: """
         aav --path {input.array} \

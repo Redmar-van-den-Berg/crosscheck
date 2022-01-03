@@ -21,8 +21,12 @@ def samples_with_array():
     samples = list()
 
     for sample in pep.sample_table['sample_name']:
-        # Get the array from the pep sample table
-        array = pep.sample_table.loc[sample, 'array']
+        try:
+            # Get the array from the pep sample table
+            array = pep.sample_table.loc[sample, 'array']
+        # The array column is not defined, so none of the samples have an array
+        except KeyError:
+            return list()
 
         # If an array is specified, it will be a string
         # (otherwise, it will be float('nan')
