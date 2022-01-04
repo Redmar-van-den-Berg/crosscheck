@@ -27,6 +27,7 @@ jobs:
           - integration-vanilla
           - integration-two-samples
           - integration-different-vcf
+          - integration-with-array
     steps:
     - uses: actions/checkout@v2
 
