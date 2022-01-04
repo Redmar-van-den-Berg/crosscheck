@@ -3,3 +3,4 @@ sample_table: "samples.csv"
 subsample_table: "sub-samples.csv"
 crosscheck:
   haplotype_map: "tests/data/haplotype.map"
+  array_lookup: "tests/data/grch37_OArray_lookup.json"

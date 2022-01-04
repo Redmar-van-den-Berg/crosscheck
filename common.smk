@@ -13,6 +13,10 @@ def get_input_files(wc):
     else:
         return pep.sample_table.loc[wc.sample, 'files']
 
+def get_input_file(wc):
+    """ Return the first input file for sample """
+    return get_input_files(wc)[0]
+
 def get_picard_input_string(wildcards):
     return ' '.join(f'INPUT={x}' for x in get_input_files(wildcards))
 
